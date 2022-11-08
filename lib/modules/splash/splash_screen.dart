@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3))
-        .then((value) => Get.offAndToNamed(Constants.basicScreen));//signInScreen
+        .then((value) => Get.offAndToNamed(Constants.signInScreen));//signInScreen
     super.initState();
   }
 

@@ -21,7 +21,7 @@ class DeliveryScreen extends StatelessWidget {
     return DefaultTabController(
       length: 4,
       child: Padding(
-        padding: EdgeInsetsDirectional.only(start: 12.w,end: 12.w, top: 30.h ),
+        padding: EdgeInsetsDirectional.only(start: 27.w,end: 27.w, top: 30.h ),
         child: Column(
           children: [
             TabBar(
@@ -36,13 +36,14 @@ class DeliveryScreen extends StatelessWidget {
             Expanded(
               child: TabBarView(
                 children: [
-                Obx(
+                  Obx(
                   () => controller.allOrders.isEmpty
                       ? StaticMethods.emptyWidget(
                           Constants.noOrder,
                           AssetsHelper.noOrderImg,
                         )
                       : ListView.builder(
+                          physics: const BouncingScrollPhysics(),
                           itemBuilder: (context, index) =>
                               _buildOrderCard(controller.allOrders[index]),
                           itemCount: controller.allOrders.length,
@@ -66,16 +67,28 @@ class DeliveryScreen extends StatelessWidget {
       hasBorder: true,
       child: Column(
         children: [
-          Text(
-            'Is ${order.status.toString().split('.').last}',
-            style: AppTextStyle.buildPoppinsMediumTextStyle(
-              color:order.status == OrderStatus.Delivered? ColorHelper.green: ColorHelper.blue,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  order.productName,
+                  style: AppTextStyle.buildPoppinsMediumTextStyle(color:ColorHelper.blue,),
+                ),
+                Text(
+                  'Is ${order.status.toString().split('.').last}',
+                  style: AppTextStyle.buildPoppinsMediumTextStyle(
+                    color:order.status == OrderStatus.Delivered? ColorHelper.green: ColorHelper.blue,
+                  ),
+                ),
+              ],
             ),
           ),
           SizedBox(height: 10.h,),
           CustomStepper(order: order,),
           SizedBox(height: 20.h,),
-          CustomStepper(order: order,withContent: false),
+          //CustomStepper(order: order,withContent: false),
         ],
       ),
     );

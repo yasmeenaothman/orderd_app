@@ -48,14 +48,14 @@ class ProfileScreen extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                 ),
-                CustomButton(
+                /*CustomButton(
                   text: Constants.trackOrder,
                   haveBorder: true,
                   color: Colors.white,
                   onPressed: (){
                     Get.toNamed(Constants.trackingOrderScreen);
                   },
-                ),
+                ),*/
               ],
             ):EditProfileScreen(),
           ),

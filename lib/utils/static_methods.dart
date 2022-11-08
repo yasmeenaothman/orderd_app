@@ -16,8 +16,12 @@ class StaticMethods{
       ),
     );
   }
-  static Widget svgPicture(String imgPath){
-    return SvgPicture.asset('${AssetsHelper.imgBaseURL}$imgPath',fit: BoxFit.none,);
+  static Widget svgPicture(String imgPath ,{Color? color}){
+    return SvgPicture.asset(
+      '${AssetsHelper.imgBaseURL}$imgPath',
+      fit: BoxFit.none,
+      color: color,
+    );
   }
   static Widget imageAsset(String imgPath){
     return  Image.asset(

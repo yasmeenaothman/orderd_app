@@ -2,19 +2,17 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:orderd_app/app/app_text_styles.dart';
 import 'package:orderd_app/helpers/color_helper.dart';
 import 'package:timelines/timelines.dart';
 
 import '../model/order.dart';
-import '../modules/basic/home/order/order_controller.dart';
 import '../utils/constants.dart';
 class CustomStepper extends StatelessWidget {
-  CustomStepper({Key? key, required this.order, this.withContent = true}) : super(key: key);
-  Order order;
-  bool withContent;
+  const CustomStepper({Key? key, required this.order, this.withContent = true,this.isDelivery = true,}) : super(key: key);
+  final Order order;
+  final bool withContent;
+  final bool isDelivery;
   @override
   Widget build(BuildContext context) {
      List<Map<String,String>> timeLineList = [
@@ -62,22 +60,48 @@ class CustomStepper extends StatelessWidget {
   Widget _buildTimeLineContent(Map<String,String> e){
     return buildRow(e.keys.first, e.values.first);
   }
-  static Widget buildRow(String label, String result) {
+  Widget buildRow(String label, String result) {
     return Padding(
-      padding: EdgeInsetsDirectional.only(bottom: 20.h,start: 10.w,top: 3.h),
+      padding: EdgeInsetsDirectional.only(bottom: isDelivery? 10.h : 20.h,start: 10.w,top: isDelivery?0:5.h,end: 20.w),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(width: 52.w,
+          Visibility(
+            visible: !isDelivery,
+            child: SizedBox(
+              width: 52.w,
+              child: Visibility(
+                visible: !isDelivery,
+                child: Text(
+                  label,
+                  style: AppTextStyle.buildPoppinsMediumTextStyle(),
+                ),
+              ),
+            ),
+          ),
+          Visibility(
+            visible: !isDelivery,
+            child: SizedBox(
+              width: 55.w,
+            ),
+          ),
+          Visibility(
+            visible: !(isDelivery && label == Constants.time),
+            child: Expanded(
               child: Text(
-                label, style: AppTextStyle.buildPoppinsMediumTextStyle(),)),
-          SizedBox(width: 55.w,),
-          Expanded(
+                result,
+                style: AppTextStyle.buildPoppinsMediumTextStyle(size: 14),
+              ),
+            ),
+          ),
+          Visibility(
+            visible: isDelivery && label == Constants.date,
             child: Text(
-              result,
+              order.time,
               style: AppTextStyle.buildPoppinsMediumTextStyle(size: 14),
             ),
-          )
+          ),
         ],
       ),
     );

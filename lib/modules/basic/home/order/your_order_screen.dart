@@ -71,7 +71,7 @@ class YourOrderScreen extends StatelessWidget {
       height: null,
       child: Column(
         children: [
-          CustomStepper(order:controller.orderConfirmed.value!),
+          CustomStepper(order:controller.orderConfirmed.value!,isDelivery: false,),
          /* ...controller.timeLineList
               .sublist(2)
               .map((e) => Padding(

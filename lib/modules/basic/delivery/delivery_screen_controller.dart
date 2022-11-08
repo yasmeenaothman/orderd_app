@@ -5,10 +5,10 @@ import '../../../utils/static_methods.dart';
 
 class DeliveryScreenController extends GetxController{
   RxList allOrders = [Order(
-      productName: 'Fruits And Vegetables',
+      productName: 'Fruits',
       fromAddress: 'Metro Market/Alremal/ Gaza',
       toAddress: 'Metro Market/Alremal/ Gaza',
-      date: '10Th August , 2022',
+      date: '10-10-2022',
       time: '12:30Pm',
       status: OrderStatus.Ongoing
   )].obs;

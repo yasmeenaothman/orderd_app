@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:orderd_app/widgets/custom_white_container.dart';
 import 'package:timelines/timelines.dart';
 
@@ -46,24 +45,19 @@ class TrackingOrderScreen extends StatelessWidget {
     return Timeline.tileBuilder(
       shrinkWrap: true,
       theme: _buildTimeLineTheme(),
-      /*TimelineTheme(
-        data: TimelineThemeData(),
-        child: ContainerIndicator(
-          child: SvgPicture.asset('${AssetsHelper.imgBaseURL}${AssetsHelper.timelineIcon}',fit: BoxFit.none,),
-        ),
-      ).data.copyWith(
-          connectorTheme: ConnectorThemeData(color: Colors.grey,space: 10.w,thickness: 1.5,indent: 1.5),
-          indicatorTheme: IndicatorThemeData(color: ColorHelper.blue,size: 13.r),
-          nodePosition: .025
-      ),*/
       dragStartBehavior: DragStartBehavior.down,
-      builder: TimelineTileBuilder.connectedFromStyle(
+      builder: TimelineTileBuilder.connected(
         indicatorPositionBuilder: (context, index)=>0.15,
         contentsBuilder: (context, index) => _buildContent(index),
-        indicatorStyleBuilder: (context, index) => IndicatorStyle.outlined,
-        connectorStyleBuilder: (context, index) =>  ConnectorStyle.dashedLine,
-        firstConnectorStyle: ConnectorStyle.transparent,
-        lastConnectorStyle: ConnectorStyle.transparent,
+        firstConnectorBuilder: (context)=>Container(),
+        lastConnectorBuilder: (context)=>Container(),
+        indicatorBuilder: (_,index)=> OutlinedDotIndicator(
+          color: ColorHelper.blue,
+          child: StaticMethods.svgPicture(AssetsHelper.timelineIcon,color: ColorHelper.blue),
+        ),
+        connectorBuilder: (_,index,__)=> const DashedLineConnector(
+          color: Colors.grey,
+        ),
         itemCount: 4,
       ),
     );
@@ -71,7 +65,7 @@ class TrackingOrderScreen extends StatelessWidget {
   TimelineThemeData _buildTimeLineTheme(){
     return TimelineThemeData.vertical().copyWith(
         connectorTheme: ConnectorThemeData(color: Colors.grey,space: 10.w,thickness: 1.5,indent: 1.5),
-        indicatorTheme: IndicatorThemeData(color: ColorHelper.blue,size: 12.5.r ),
+        indicatorTheme: IndicatorThemeData(color: ColorHelper.blue,size: 20.r ),
         nodePosition: .025
     );
   }
