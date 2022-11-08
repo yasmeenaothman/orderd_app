@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../../app/app_text_styles.dart';
+import 'package:orderd_app/helpers/color_helper.dart';
 
+import '../../../../app/app_text_styles.dart';
 import '../../../../model/question.dart';
-import '../../../../utils/constants.dart';
 
 class QuestionWidget extends StatelessWidget {
   const QuestionWidget({
@@ -16,11 +16,26 @@ class QuestionWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(question.question!, style: AppTextStyle.buildPoppinsSemiBoldTextStyle(color: Colors.black,size: 13),),
+        Text(
+          '* ${question.question!}',
+          style: AppTextStyle.buildPoppinsSemiBoldTextStyle(
+            color: ColorHelper.blue_0B2C3F,
+            size: 13,
+          ),
+        ),
         const SizedBox(
           height: 10,
         ),
-        Text(question.answer!, style: AppTextStyle.buildPoppinsSemiBoldTextStyle(color: Colors.black,size: 13),),
+        Text(
+          question.answer!,
+          style: AppTextStyle.buildPoppinsSemiBoldTextStyle(
+            color: Colors.black,
+            size: 13,
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
       ],
     );
   }

@@ -42,7 +42,7 @@ class CustomDrawer extends StatelessWidget {
   Widget _buildListTile(Map e){
     return ListTile(
       contentPadding: EdgeInsetsDirectional.only(start: 15.w),
-      leading: StaticMethods.svgPicture(e[Constants.iconKey]),
+      leading: StaticMethods.svgPicture(e[Constants.iconKey],),
       title: Align(
         alignment: Alignment(-1.2.w, 0),
         child: Text(

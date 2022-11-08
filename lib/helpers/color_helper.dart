@@ -12,5 +12,6 @@ class ColorHelper{
   static const grey_78AEAEAE = Color(0x78AEAEAE);
   static const green = Color(0xFF04B722);
   static const gray_26544F4F = Color(0x26544F4F);
+  static const blue_0B2C3F = Color(0xFF0B2C3F);
 
 }

@@ -8,13 +8,13 @@ class Question {
   String? question;
   String? answer;
   Question.fromMap(Map map) {
-    answer = map[Constants.answer];
-    question = map[Constants.question];
+    answer = map[Constants.answerKey];
+    question = map[Constants.questionKey];
   }
   toMap() {
     return {
-      Constants.answer: answer,
-      Constants.question: question,
+      Constants.answerKey: answer,
+      Constants.questionKey: question,
     };
   }
 }

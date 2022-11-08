@@ -93,6 +93,8 @@ class Constants{
   static const completeOrder = 'Complete Order';
   static const orderDetails = 'Order Details:';
   static const labelKey = 'label';
+  static const questionKey = 'question';
+  static const answerKey = 'answer';
   static const iconKey = 'icon';
   static const funKey = 'onChange';
   static const yourProd = 'Your Product:';
@@ -130,15 +132,18 @@ class Constants{
   static const cardHolderName = 'Card Holder Name:';
   static const cardNumber = 'Card Number:';
   static const expiryDate = 'Expiry Date:';
-  static const answer = 'answer';
-  static const question = 'question';
   static const cVV = 'CVV/CVC';
   static const notifications = 'Notifications';
   static const trackingOrder = 'Tracking order';
   static const howHelp = 'How can we help you?';
   static const searchOnCenter = 'Search our help center';
   static const frequentQuestions = 'Frequent Questions';
+  static const questionOne = 'It is a long established fact that a reader will? ';
+  static const questionTwo = 'It is a long established fact that a reader will? ';
+  static const answerOne = '''distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normaldistribution of letters,as opposed to using 'Content here,content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,and a search for 'lorem ipsum' will uncover many web sites still in their infancy.Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).''';
+  static const answerTwo = 'distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal .';
   static const aboutDescription = ''' Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est eopksio laborum. Sed ut perspiciatis unde omnis istpoe natus error sit voluptatem accusantium doloremque eopsloi laudantium, totam rem aperiam.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est eopksio laborum. Sed ut perspiciatis unde omnis istpoe natus error sit voluptatem accusantium doloremque eopsloi laudantium, totam rem aperiam.Excepteur sint occaecat cupidatat non proident.''';
+
   // Lists
   static const List imagesPath = ['insta_icon.svg','google_img.svg','facebook_icon.svg'];
   static List<Map<String, dynamic>> tabs = [
@@ -176,6 +181,10 @@ class Constants{
     { labelKey: cardNumber, funKey: (text) {},},
     { labelKey: expiryDate, funKey: (text) {},},
     { labelKey: cVV, funKey: (text) {},},
+  ];
+  static List<Map<String, dynamic>> questions = [
+    { questionKey: questionOne, answerKey: answerOne},
+    { questionKey: questionTwo, answerKey: answerTwo},
   ];
   static List orderStatus = [all,ongoing,delivered,unDelivered];
 }

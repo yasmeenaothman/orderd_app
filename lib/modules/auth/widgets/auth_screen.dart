@@ -104,7 +104,7 @@ class AuthScreen extends StatelessWidget {
           child: CustomTextField(
             hintText: Constants.password,
             onChanged: (s) {},
-            suffixIcon: StaticMethods.svgPicture('eye_icon.svg'),
+            suffixIcon: StaticMethods.svgPicture(AssetsHelper.eyeIcon),
           ),
         ),
         SizedBox(

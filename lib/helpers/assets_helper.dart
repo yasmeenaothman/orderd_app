@@ -27,6 +27,7 @@ class AssetsHelper{
   static const leftArrowIcon = 'left_arrow_icon.svg';
   static const timelineIcon = 'timeline_icon.svg';
   static const trackingImg = 'tracking_img.png';
+  static const eyeIcon = 'eye_icon.svg';
   static const defaultProfileImg = 'https://th.bing.com/th/id/R.e17153e79fbc08e552f369a11b41ec18?rik=b4gzYwwaZ5RTww&pid=ImgRaw&r=0';
   /*static const deliveryIcon= 'delivery_icon.svg';
   static const homeIcon = 'home_icon.svg';
